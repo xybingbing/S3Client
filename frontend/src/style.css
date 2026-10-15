@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  .dark {
+    color-scheme: dark;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-zinc-100 font-sans text-zinc-800 antialiased dark:bg-zinc-950 dark:text-zinc-200;
+    overflow: hidden;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full border-2 border-transparent bg-clip-content bg-zinc-400/60 dark:bg-zinc-600/70;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-zinc-500/70 dark:bg-zinc-500/80;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  *:focus-visible {
+    @apply outline-none;
+  }
+}
+
+@layer components {
+  .toolbar-btn {
+    @apply inline-flex h-8 w-8 flex-none items-center justify-center rounded-lg text-zinc-600 transition hover:bg-zinc-200/70 active:scale-95 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-transparent dark:text-zinc-300 dark:hover:bg-zinc-700/60;
+  }
+
+  .field {
+    @apply w-full rounded-lg border border-zinc-300 bg-white px-3 py-2 text-sm text-zinc-800 outline-none transition placeholder:text-zinc-400 focus:border-accent-500 focus:ring-2 focus:ring-accent-500/25 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:placeholder:text-zinc-500;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-accent-500 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-accent-600 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-zinc-300 bg-white px-4 py-2 text-sm font-medium text-zinc-700 transition hover:bg-zinc-100 active:scale-[0.98] dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-200 dark:hover:bg-zinc-800;
+  }
+
+  .panel {
+    @apply border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-900;
+  }
+
+  .drag-none {
+    -webkit-user-drag: none;
+    user-select: none;
+  }
+}
